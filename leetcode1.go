@@ -13,13 +13,14 @@ func main() {
 }
 
 func twoSum(nums []int, target int) []int {
-	for i := 0 ; i<len(nums) ; i++ {
-		for j := i ; j<len(nums) ;j++ {
-			if nums[i] + nums[j] == target{
-				res := []int{i , j}
-				return res
-			}
+	map1 := make(map[int]int)
+	for i := 0; i < len(nums); i++ {
+		dif := target - nums[i]
+		c, ok := map1[dif]
+		if ok != false {
+			return []int{c, i}
 		}
+		map1[nums[i]] = i
 	}
 	return nil
 }
