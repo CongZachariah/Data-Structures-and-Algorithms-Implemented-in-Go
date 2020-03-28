@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Print(hasGroupsSizeX([]int {1,2,1,1,1,4,3,4,4,3,3,3,2,2,2}))
+	fmt.Print(hasGroupsSizeX([]int {0,0,0,0,0}))
 }
 
 func hasGroupsSizeX(deck []int) bool {
@@ -12,7 +12,8 @@ func hasGroupsSizeX(deck []int) bool {
 		map1[deck[i]] ++
 	}
 	g := 0
-	for i := 1 ; i <= len(map1) ; i ++ {
+	for i := 0 ; i <= len(map1) ; i ++ {
+		fmt.Print(map1[i])
 		g = gcd(g,map1[i])
 		if g == 1 {
 			return false
